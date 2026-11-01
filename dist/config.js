@@ -2,3 +2,6 @@ window.RITIM_SUPABASE={url:'https://gdguguffecmicvarwowo.supabase.co',key:'sb_pu
 
 window.RITIM_SITE_URL='https://serhatserter.github.io/ritim/';
 
+
+window.RITIM_GOOGLE_ENABLED=false;
+
