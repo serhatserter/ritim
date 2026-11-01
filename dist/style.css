@@ -14,3 +14,4 @@ html{color-scheme:light}html[data-theme="dark"]{color-scheme:dark;--bg:#181818;-
 .account-actions{display:flex;gap:8px}.account-actions button{flex:1}#accountEmail{overflow-wrap:anywhere}[hidden]{display:none!important}#authMessage{overflow-wrap:anywhere}header>div{flex-wrap:wrap}header{height:auto;min-height:88px;padding-top:12px;padding-bottom:12px}
 
 html[data-theme="dark"][data-accent] nav button.active,html[data-theme="dark"][data-accent] .day.selected{background:#303030}
+html:not([data-auth="signed-in"]) body>aside,html:not([data-auth="signed-in"]) body>main{display:none}html:not([data-auth="signed-in"]) #accountDialog::backdrop{background:var(--bg)}html:not([data-auth="signed-in"]) body{min-height:100dvh}:root{--accent:#2864be}
