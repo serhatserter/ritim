@@ -18,7 +18,7 @@ if(!state)state=freshState();
 let activeStorageKey=KEY;
 let selected=today(),month=selected.slice(0,7),view='today';
 function toast(s){$('#toast').textContent=s;$('#toast').style.display='block';clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('#toast').style.display='none',3000)}
-function save(){try{localStorage.setItem(activeStorageKey,JSON.stringify(state));return true}catch{toast('Değişiklik kaydedilemedi. Depolama alanını kontrol et.');return false}}
+function save(){try{localStorage.setItem(activeStorageKey,JSON.stringify(state));globalThis.ritimSaved?.();return true}catch{toast('Değişiklik kaydedilemedi. Depolama alanını kontrol et.');return false}}
 function change(fn){const old=structuredClone(state);fn();if(!save())state=old;render()}
 const category=id=>state.categories.find(c=>c.id===String(id));
 function ruleFor(c,d){return [...c.rules].reverse().find(r=>r.from<=d)}
@@ -48,5 +48,6 @@ $('#export').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify
 
 function updateThemeButton(){const dark=document.documentElement.dataset.theme==='dark';$('#themeToggle').textContent=dark?'☀':'☾';$('#themeToggle').setAttribute('aria-label',dark?'Açık temaya geç':'Karanlık temaya geç');$('#themeToggle').setAttribute('aria-pressed',String(dark));const meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.content=dark?'#181818':'#285b49'}
 $('#themeToggle').onclick=()=>{const theme=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=theme;try{localStorage.setItem('ritim-theme',theme)}catch{}updateThemeButton()};updateThemeButton();
+
 
 
